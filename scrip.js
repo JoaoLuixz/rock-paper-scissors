@@ -1,5 +1,5 @@
 const process = require("node:process");
-const handOptions = require("./resources");
+const handOptions = require("./resources/resources");
 
 const userInput = process.argv[2];
 
