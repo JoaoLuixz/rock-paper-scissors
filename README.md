@@ -8,7 +8,7 @@
 
 ![](resources\images\githubpage.png)
 
-![""](resources\images\donwloadzip.png)
+![](resources\images\donwloadzip.png)
 
 3. Find the donwloaded zip file in your file explorer and extract its contents:
 
