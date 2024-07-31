@@ -1,30 +1,37 @@
 const process = require("node:process");
+const handOptions = require("./resources");
 
-const userInput = process.argv[2].toUpperCase();
+const userInput = process.argv[2];
 
-const handsOptions = [
-    {value: "ROCK", counter: "PAPER"},
-    {value: "PAPER", counter: "SCISSORS"},
-    {value: "SCISSORS", counter: "ROCK"}
-];
-
-const userChoice = handsOptions.find((choice) => choice.value = userInput)
-
-if(userChoice === undefined){
-    console.log("Input must be eaither ROCK, PAPER or SCISSORS!!!")
-    return;
+if (!userInput) {
+  console.log("Input must be eaither ROCK, PAPER or SCISSORS!!!");
+  return;
 }
 
-const machineChoice = handsOptions[Math.floor(Math.random() * handsOptions.length)];
+const userChoice = handOptions.find(
+  (choice) => choice.value === userInput.toUpperCase()
+);
+
+if (!userChoice) {
+  console.log("Input must be eaither ROCK, PAPER OR SCISSORS!!!");
+  return;
+}
+
+const machineChoice =
+  handOptions[Math.floor(Math.random() * handOptions.length)];
 
 console.log(`\nUser: ${userChoice.value}\nMachine: ${machineChoice.value}\n`);
 
-if(userChoice.value === machineChoice.counter){
-    console.log("Player wins");
-    return;
+if (userChoice.value === machineChoice.counter) {
+  console.log("Player wins\n");
+  return;
 }
 
-if(machineChoice.value === userChoice.counter){
-    console.log("Machine wins")
-    return;
+if (machineChoice.value === userChoice.counter) {
+  console.log("Machine wins\n");
+  return;
+}
+
+if (userChoice.value === machineChoice.value) {
+  console.log("TIE\n");
 }
